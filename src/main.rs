@@ -1,5 +1,8 @@
 fn main() {
-    main::Solution::two_sum(vec![5, 9, 1, 2, 3, 4], 5);
+    main::Solution::two_sum(vec![7, 0, 9, 1, 2, 3, 4], 5);
+    main::Solution::two_sum(vec![0, 9, 1, 2, 3, 4], 7);
+    main::Solution::two_sum(vec![5, 2, 4], 6);
+    main::Solution::two_sum(vec![0, 3, 2, 4], 6);
 }
 
 mod main {
@@ -14,7 +17,12 @@ mod main {
                     let y: i32 = target - x;
                     loop {
                         if j < nums.len() {
-                            if y == nums[j] {
+                            if (y == nums[j]) && (i != j) {
+                                println!("SOLVED!");
+                                println!(
+                                    "vec![i as i32, j as i32]: {:?}",
+                                    vec![i as i32, j as i32]
+                                );
                                 return vec![i as i32, j as i32];
                             }
                             j += 1;
